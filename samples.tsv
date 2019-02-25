@@ -1,0 +1,3 @@
+sample_ID	sample_name	R1-file	R2_file
+sample1	KD_treatment	seq1_R1.fastq	seq1_R2.fastq
+sample2	EV_treatment	seq2_R1.fastq	seq2_R2.fastq
