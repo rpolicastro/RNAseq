@@ -1,2 +1,7 @@
-# RNAseq
-Standard RNA-seq Workflow
+# RNA-seq
+
+Workflow for standard RNA-seq analysis
+
+## getting started
+
+
