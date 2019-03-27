@@ -23,8 +23,8 @@ rnaseq.fastqc()
 
 ## generating the STAR genome index
 rnaseq.star_genome(
-	gtf = './genes.gtf',
-	fasta = './genome.fasta'
+	genomeGTF = './genes.gtf',
+	genomeFasta = './genome.fasta'
 )
 ## aligning fastq files to genome
 rnaseq.star_align()
