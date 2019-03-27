@@ -16,7 +16,7 @@ rnaseq = RNAseq(
 )
 
 ## adding sample info to sequencing object
-rnaseq.sample_info('./samples.tsv')
+rnaseq.sample_sheet('./samples.tsv')
 
 ## fastQC check of raw reads
 rnaseq.fastqc()
