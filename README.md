@@ -66,3 +66,4 @@ This workflow would not be possible without the great software listed below.
 - [STAR](https://github.com/alexdobin/STAR) - Read aligner.
 - [Samtools](http://www.htslib.org/) - SAM/BAM manipulation.
 - [Subread](http://subread.sourceforge.net/) - Read annotation and counting.
+- [Pandas](https://pandas.pydata.org/) - Dataframe manipulation.
