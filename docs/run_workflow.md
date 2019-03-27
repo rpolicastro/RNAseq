@@ -4,7 +4,7 @@ After preparing conda environment and making the sample sheet, you are ready to 
 
 ## Quick Start
 
-An example workflow script 'main.py' is provided in the 'examples' directory. This file can be moved to the main repository directory, edited with the correct information, and run for an easy start. To run the script enter `python main.py`.
+An example workflow script [main.py](https://github.com/rpolicastro/RNAseq/blob/master/examples/main.py) is provided in the *examples* directory. This file can be moved to the main repository directory, edited with the correct information, and run for an easy start. To run the script enter `python main.py`.
 
 ## Normal Start
 
