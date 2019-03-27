@@ -1,43 +1,59 @@
 
-## generating the genomic index for the STAR aligner
+
+import pandas as pd
+import os
+import subprocess
+
+## generating STAR genomic index
 
 def star_genome(self, genomeGTF, genomeFasta):
-	self.gtf = genomeGTF
-	self.fasta = genomeFasta
-	# creating the output directory if it doesn't exist
+	self.genome_gtf = genomeGTF
+	self.genome_fasta = genomeFasta
+	
+	# creating directory for genomic index
 	outdir = os.path.join(self.outdir, 'genome')
 	if not os.path.isdir(outdir): os.mkdir(outdir)
-	# compiling the STAR command
+
+	# building command
 	command = [
 		'STAR',
-		'--runThreadN ' + str(self.cores),
+		'--runThreadN', str(self.cores),
 		'--runMode genomeGenerate',
-		'--genomeDir ' + outdir,
-		'--genomeFastaFiles ' + fasta,
-		'--sjdbGTFfile ' + self.gtf
+		'--genomeDir', outdir,
+		'--genomeFastaFiles', self.genome_fasta,
+		'--sjdbGTFfile', self.genome_gtf
 	]
-	# sending the STAR command
-	subprocess.run(' '.join(command), shell=True, check=True)
+	command = ' '.join(command)
 
-## aligning reads with the STAR aligner
+	# submitting command
+	subprocess.run(command, shell=True, check=True)
+
+## aligning reads using STAR
 
 def star_align(self):
-	# creating output directory if it doesn't exist
-	outdir = os.path.join(self.outdir, 'alignment')
+
+	# creatig directory for aligned files
+	outdir = os.path.join(self.outdir, 'aligned')
 	if not os.path.isdir(outdir): os.mkdir(outdir)
-	# compiling the command to send to STAR
-	for sample,info in self.samples.items():
+
+	# defining function to align reads
+	def _align(self, row):
+
+		# making command
 		command = [
 			'STAR',
-			'--runThreadN ' + str(self.cores),
-			'--genomeDir ' + os.path.join(seqObject.outdir, 'genome'),
-			'--outFileNamePrefix ' + os.path.join(outdir, sample + '_'),
-			'--outSAMtype BAM SortedByCoordinate'
+			'--runThreadN', str(self.cores),
+			'--genomeDir', os.path.join(self.outdir, 'genome'),
+			'--outFileNamePrefix', os.path.join(self.outdir, 'aligned', row['sample_ID'] + '_' + row['condition'] + '_' + str(row['replicate']) + '_'),
+			'--outSAMtype BAM SortedByCoordinate',
+			'--readFilesIn', os.path.join(self.seqdir, row['R1'])
 		]
-		# if paired end run, grab the R1 and R2 files, otherwise just supply the R1 file
-		if seqObject.paired:
-			command.append('--readFilesIn ' + info.get('R1') + ' ' + info.get('R2'))
-		else:
-			command.append('--readFilesIn ' + info.get('R1'))
-		# submit the command
-		subprocess.run(' '.join(command), shell=True, check=True)
+		if row['paired'].lower() == 'paired': command.append(os.path.join(self.seqdir, row['R2']))
+		command = ' '.join(command)
+
+		# running command
+		subprocess.run(command, shell=True, check=True)
+
+	# looping through fastq files and aligning them
+	self.sample_sheet.apply(lambda x: _align(self=self, row=x), axis=1)
+
