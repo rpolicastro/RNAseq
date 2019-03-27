@@ -15,7 +15,21 @@ Before creating the environment, you must first install miniconda.
 1. [Install miniconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html?highlight=conda), and make sure that conda is in your PATH.
 2. Update conda to the latest version `conda update conda`.
 
-You are now read to create the virtual sofware environment, and download all software and dependencies. If you would like to recreate the environment used when writing the original workflow, navigate to the main repository directory and enter `conda create -f environment.yml`. If you would like to create your own environment with the latest software versions, follow the steps below.
+You are now read to create the virtual sofware environment, and download all software and dependencies.
+
+#### Recreating Original Environment
+
+If you would like to recreate the environment used when writing the original workflow, you can do so with the provided environment.yml file.
+
+```
+conda create -p ~/miniconda3/envs/rnaseq-automation -f environment.yml`.
+```
+
+`-p` should point to the location on your system where conda environments are stored. This is usually `/miniconda3/envs`. 
+
+#### Creating Updated Environment
+
+If you would like to create your own environment with the latest software versions, follow the steps below.
 
 1. Create the new environment and specify the software to include in it.
 ```
