@@ -22,7 +22,7 @@ You are now read to create the virtual sofware environment, and download all sof
 If you would like to recreate the environment used when writing the original workflow, you can do so with the provided environment.yml file.
 
 ```
-conda create -p ~/miniconda3/envs/rnaseq-automation -f environment.yml
+conda env create -p ~/miniconda3/envs/rnaseq-automation -f environment.yml
 ```
 
 `-p` should point to the location on your system where conda environments are stored. This is usually `/miniconda3/envs`. 

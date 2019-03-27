@@ -4,13 +4,13 @@ import os
 class RNAseq(object):
 
 	def __init__(self, projectID, projectName, organism, seqDir, cores=1, outDir=None):
-                self.project_id = projectID
-                self.project_name = projectName
-                self.organism = organism
-                self.cores = cores
-                self.outdir = outDir
+		self.project_id = projectID
+		self.project_name = projectName
+		self.organism = organism
+		self.cores = cores
+		self.outdir = outDir
 		self.seqdir = seqdir
-                if not outDir: self.outdir = os.getcwd()
+		if not outDir: self.outdir = os.getcwd()
 
 	from ._samplesheet import sample_sheet
 	from ._fastqc import fastqc
