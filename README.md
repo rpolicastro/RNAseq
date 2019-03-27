@@ -31,7 +31,7 @@ If you wish to use any of the software in the environment outside of the workflo
 
 ## Creating Sample Sheet
 
-In order to keep track of samples, this workflow requires the creation of a sample sheet. An example sheet 'samples.tsv' is provided in the 'examples' directory. It is important to follow exact formatting of this sheet, as the information within it is used in various stages of the workflow.
+In order to keep track of samples, this workflow requires the creation of a sample sheet. An example sheet [samples.tsv](https://github.com/rpolicastro/RNAseq/blob/master/examples/samples.tsv) is provided in the *examples* directory. It is important to follow exact formatting of this sheet, as the information within it is used in various stages of the workflow.
 
 | Column | Description |
 | ------ | ----------- |
