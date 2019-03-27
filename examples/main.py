@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 from modules import RNAseq
 import os
@@ -13,6 +14,7 @@ rnaseq = RNAseq(
 	outDir = './outdir',
 	seqDir = './sequences'
 )
+
 ## adding sample info to sequencing object
 rnaseq.sample_info('./samples.tsv')
 
@@ -22,7 +24,7 @@ rnaseq.fastqc()
 ## generating the STAR genome index
 rnaseq.star_genome(
 	gtf = './genes.gtf',
-	fasta = './genome.fasta',
+	fasta = './genome.fasta'
 )
 ## aligning fastq files to genome
 rnaseq.star_align()
