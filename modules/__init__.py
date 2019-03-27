@@ -9,7 +9,7 @@ class RNAseq(object):
 		self.organism = organism
 		self.cores = cores
 		self.outdir = outDir
-		self.seqdir = seqdir
+		self.seqdir = seqDir
 		if not outDir: self.outdir = os.getcwd()
 
 	from ._samplesheet import sample_sheet
