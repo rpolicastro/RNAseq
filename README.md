@@ -22,8 +22,10 @@ You are now read to create the virtual sofware environment, and download all sof
 If you would like to recreate the environment used when writing the original workflow, you can do so with the provided environment.yml file. This will install the main software versions used in the development of the workflow, and automatically download the dependencies for those version.
 
 ```
-conda env create -f environment.yml
+conda env create -f environment.yml -p ~/miniconda3/envs/rnaseq-automation
 ```
+
+`-p` should point to the environments folder for your conda installation, which is usually `/miniconda3/envs`.
 
 #### Creating Updated Environment
 
