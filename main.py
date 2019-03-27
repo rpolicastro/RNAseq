@@ -1,5 +1,8 @@
 
 from modules import RNAseq
+import os
+
+os.chdir('~/workdir')
 
 ## loading the sequencing object
 rnaseq = RNAseq(
@@ -8,21 +11,21 @@ rnaseq = RNAseq(
 	organism = 'S. cerevisiae',
 	cores = 1,
 	outDir = './outdir',
-	paired = True
+	seqDir = './sequences'
 )
 ## adding sample info to sequencing object
-rnaseq.sample_info('./samples.tsv', fastqDir = './sequences')
+rnaseq.sample_info('./samples.tsv')
 
-## fastQC checkinf of raw reads
+## fastQC check of raw reads
 rnaseq.fastqc()
 
 ## generating the STAR genome index
 rnaseq.star_genome(
 	gtf = './genes.gtf',
-	fasta = './genome.fa',
+	fasta = './genome.fasta',
 )
-## aligning fastq files with genome
+## aligning fastq files to genome
 rnaseq.star_align()
 
 ## counting reads
-rnaseq.feature_count()
+rnaseq.count_reads()
