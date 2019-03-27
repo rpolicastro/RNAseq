@@ -5,7 +5,7 @@ Automation of RNA-seq Workflow
 
 ## Cloning Repository
 
-To get started, you must first clone the ChIPseq automation repository. Navigate to a directory you would like to clone the repo to and enter `git clone https://github.com/rpolicastro/RNAseq.git`.
+To get started, you must first clone the RNAseq automation repository. Navigate to a directory you would like to clone the repo to and enter `git clone https://github.com/rpolicastro/RNAseq.git`.
 
 ## Preparing Conda Environment
 
