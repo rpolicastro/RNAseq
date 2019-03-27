@@ -42,7 +42,7 @@ rnaseq.fastqc()
 Generate a STAR aligner genomic index. You must supply the GTF annotation file and FASTA genomic sequences file.
 
 ```
-rnaseq.star_genome(gtf = './genes.gtf', fasta = './genome.fasta')
+rnaseq.star_genome(genomeGTF = './genes.gtf', genomeFasta = './genome.fasta')
 ```
 
 Align the reads to the genome using STAR aligner.
