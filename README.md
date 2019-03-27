@@ -44,10 +44,7 @@ In order to keep track of samples, this workflow requires the creation of a samp
 
 ## Running the Workflow
 
-After getting the conda environment ready, the sample sheet prepared, and the settings specified, you are now ready to run the workflow. Navigate to the main directory and enter 'bash main.sh'.
-
-###### Notes for IU Folks
-If you wish to submit the workflow to a compute node, you can do so by submitting it through the TORQUE resource manager `qsub -l nodes=1:ppn=8,vmem=64gb,walltime=12:00:00 main.sh`. 'ppn' specifies the threads, and 'vmem' is the virtual memory.
+After getting the conda environment ready and the sample sheet prepared.
 
 # Built With
 
