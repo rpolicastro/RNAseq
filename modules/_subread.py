@@ -29,7 +29,7 @@ def count_reads(self, genomeGTF=None, genomeFasta=None):
 		command.extend([
                        '-a', self.genome_gtf,
 			'-o', os.path.join(self.outdir, 'counts', row['sample_ID'] + '_' + row['condition'] + '_' + str(row['replicate']) + '_counts.tsv'),
-			os.path.join(self.outdir, 'aligned', row['sample_ID'] + '_' + row['condition'] + '_' + str(row['replicate']) + '_Aligned.out_cleaned.bam')
+			os.path.join(self.outdir, 'aligned', row['sample_ID'] + '_' + row['condition'] + '_' + str(row['replicate']) + '_Aligned.sortedByCoord.out.bam')
 		])
 		command = ' '.join(command)
 		# submit command
