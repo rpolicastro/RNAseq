@@ -44,7 +44,7 @@ In order to keep track of samples, this workflow requires the creation of a samp
 
 ## Running the Workflow
 
-After getting the conda environment ready and the sample sheet prepared, you are [ready to run the workflow](https://github.com/rpolicastro/RNAseq/blob/master/docs/run_workflow.md).
+After getting the conda environment ready and the sample sheet prepared, you are ready to [run the workflow](https://github.com/rpolicastro/RNAseq/blob/master/docs/run_workflow.md).
 
 # Built With
 
