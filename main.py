@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from modules import RNAseq
-import os
 import argparse
 
 ## Fetching Arguments
