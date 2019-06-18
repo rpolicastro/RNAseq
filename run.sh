@@ -4,6 +4,10 @@
 
 source settings.conf
 
+## Create important directories
+
+mkdir -p $OUTDIR
+
 ## Download singularity container
 
 mkdir -p ${OUTDIR}/container && cd ${OUTDIR}/container
@@ -29,4 +33,13 @@ source activate rnaseq-automation
 
 ## Run RNA-seq automation script
 
-python ./modules/main.py
+python main.py \
+--projectID $PROJECT_ID \
+--projectName $PROJECT_NAME \
+--organism $ORGANISM \
+--cores $CORES \
+--outDir $OUTDIR \
+--seqDir $SEQDIR \
+--sampleSheet $SAMPLE_SHEET \
+--genomeGTF $GENOME_GTF \
+--genomeFasta $GENOME_FASTA
