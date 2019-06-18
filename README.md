@@ -7,41 +7,9 @@ Automation of RNA-seq Workflow
 
 To get started, you must first clone the RNAseq automation repository. Navigate to a directory you would like to clone the repo to and enter `git clone https://github.com/rpolicastro/RNAseq.git`.
 
-## Preparing Conda Environment
+## Installing Singularity
 
-This workflow takes advantage of the [conda](https://conda.io/en/latest/) package manager and virtual environment. The conda package manager installs both the main software and all dependencies into a 'virtual environment' to ensure compatabilty. Furthermore, the provided 'environment.yml' file will reproduce the software environment used when developing the workflow. This ensures prolonged compatabilty and reproducibility.
-
-Before creating the environment, you must first install miniconda.
-1. [Install miniconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html?highlight=conda), and make sure that conda is in your PATH.
-2. Update conda to the latest version `conda update conda`.
-
-You are now read to create the virtual sofware environment, and download all software and dependencies.
-
-#### Recreating Original Environment
-
-If you would like to recreate the environment used when writing the original workflow, you can do so with the provided environment.yml file. This will install the main software versions used in the development of the workflow, and automatically download the dependencies for those version.
-
-```
-conda env create -f environment.yml -p ~/miniconda3/envs/rnaseq-automation
-```
-
-`-p` should point to the environments folder for your conda installation, which is usually `/miniconda3/envs`.
-
-#### Creating Updated Environment
-
-If you would like to create your own environment with the latest software versions, follow the steps below.
-
-1. Create the new environment and specify the software to include in it.
-```
-conda create -n rnaseq-automation -y -c conda-forge -c bioconda \
-pandas fastqc star samtools subread
-```
-2. Update the software to the latest compatible versions.
-```
-conda update -n rnaseq-automation -y -c conda-forge -c bioconda --all
-```
-
-If you wish to use any of the software in the environment outside of the workflow you can type `conda activate rnaseq-automation`. You can deactivate the environment by closing your terminal or entering `conda deactivate`.
+Singularity containers are self contained 'boxes' that house the software and other files necessary for the workflow. The container itself will automatically be downloaded, but you must have the Singularity software installed to both download and use the container. Please refer to the [documentation](https://www.sylabs.io/docs/) on their website.
 
 ## Creating Sample Sheet
 
@@ -58,7 +26,7 @@ In order to keep track of samples, this workflow requires the creation of a samp
 
 ## Running the Workflow
 
-After getting the conda environment ready and the sample sheet prepared, you are ready to [run the workflow](https://github.com/rpolicastro/RNAseq/blob/master/docs/run_workflow.md).
+After getting Singularity installed, the sample sheet prepared, and the settings specified, you are now ready to run the workflow. Navigate to the main directory and enter 'bash main.sh'.
 
 # Built With
 
