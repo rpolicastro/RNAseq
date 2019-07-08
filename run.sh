@@ -12,19 +12,19 @@ source settings.conf
 
 ## check settings
 
-if [ ! -f "${REPDIR}/main.py" ] && echo "WARNING: Repository directory is invalid." && exit 1
-if [ ! -d "${SEQDIR}" ] && echo "WARNING: Sequence directory does not exist." && exit 1
-if [ ! -f "$GENOME_GTF" ] && echo "WARNING: Genome GTF does not exist." && exit 1
-if [ ! -f "$GENOME_FASTA" ] && echo "WARNING: Genome FASTA does not exist." && exit 1
-if [ ! -f "$SAMPLE_SHEET" ] && echo "WARNING: Sample sheet does not exist." && exit 1
-if [ ! -n "$PROJECT_ID" ] && echo "WARNING: Project ID not set." && exit 1
-if [ ! -n "$PROJECT_NAME" ] && echo "WARNING: Project name not set." && exit 1
-if [ ! -n "$ORGANISM" ] && echo "WARNING: Organism name not set." && exit 1
-if [ ! -n "$CORES" ] && echo "WARNING: Cores not set." && exit 1
+if [ ! -f "${REPDIR}/main.py" ]; then echo "WARNING: Repository directory is invalid." && exit 1; fi
+if [ ! -d "${SEQDIR}" ]; then echo "WARNING: Sequence directory does not exist." && exit 1; fi
+if [ ! -f "$GENOME_GTF" ]; then echo "WARNING: Genome GTF does not exist." && exit 1; fi
+if [ ! -f "$GENOME_FASTA" ]; then echo "WARNING: Genome FASTA does not exist." && exit 1; fi
+if [ ! -f "$SAMPLE_SHEET" ]; then echo "WARNING: Sample sheet does not exist." && exit 1; fi
+if [ ! -n "$PROJECT_ID" ]; then echo "WARNING: Project ID not set." && exit 1; fi
+if [ ! -n "$PROJECT_NAME" ]; then echo "WARNING: Project name not set." && exit 1; fi
+if [ ! -n "$ORGANISM" ]; then echo "WARNING: Organism name not set." && exit 1; fi
+if [ ! -n "$CORES" ]; then echo "WARNING: Cores not set." && exit 1; fi
 
 ## Create important directories
 
-if [ ! -d "$OUTDIR" ] && mkdir -p $OUTDIR
+if [ ! -d "$OUTDIR" ]; then mkdir -p $OUTDIR; fi
 
 
 ## Download and Start Singularity Container
@@ -44,7 +44,7 @@ if [ ! -f "${OUTDIR}/container/RNAseq_latest.sif" ]
 then
 	echo "...downloading singularity container: RNAseq_latest.sif"
 	singularity pull shub://rpolicastro/RNAseq
-	[ -f "${OUTDIR}/container/RNAseq_latest.sif" ] && echo "...singularity container downloaded" || exit 1
+	[ -f "${OUTDIR}/container/RNAseq_latest.sif" ]; then echo "...singularity container downloaded"; else exit 1; fi
 else
 	echo "...singularity container already exists in ${OUTDIR}/container"
 fi
