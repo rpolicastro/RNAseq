@@ -61,8 +61,8 @@ singularity shell \
 -B $REPDIR, \
 $OUTDIR, \
 $SEQDIR, \
-$(dirname $GENOME_GTF) \
-$(dirname $GENOME_FASTA) \
+$(dirname $GENOME_GTF), \
+$(dirname $GENOME_FASTA), \
 $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
 ${OUTDIR}/container/RNAseq_latest.sif
@@ -87,5 +87,3 @@ python main.py \
 --sampleSheet $SAMPLE_SHEET \
 --genomeGTF $GENOME_GTF \
 --genomeFasta $GENOME_FASTA
-
-exit 0
