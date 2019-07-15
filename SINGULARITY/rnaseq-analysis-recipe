@@ -19,19 +19,11 @@ conda update -n rnaseq-automation -y -c conda-forge -c bioconda --all
 ## Clean up extra files
 conda clean -y --all
 
+%environment
+
+export PATH=$PATH:/opt/conda/envs/rnaseq-automation/bin
+
 %runscript
-
-## Print out container info
-
-echo $(type conda)
-
-## Load conda environment
-
-source activate rnaseq-automation
-
-## Load up run settings
-
-source settings.conf
 
 ## Run the python script
 
