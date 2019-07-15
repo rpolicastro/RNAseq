@@ -46,9 +46,9 @@ fi
 
 ## Activate singularity container
 
-echo "...shelling into singularity container"
+echo "...running singularity container"
 
-singularity shell \
+singularity run \
 -eCB \
 $REPDIR,\
 $OUTDIR,\
@@ -58,28 +58,3 @@ $(dirname $GENOME_FASTA),\
 $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
 ${OUTDIR}/container/rnaseq_automation_1.0.0.sif
-
-
-## Run RNA-seq Automation Script
-## ----------
-
-## Activate conda environment
-
-source activate rnaseq-automation
-
-## Reload settings
-
-source settings.conf
-
-## Run RNA-seq automation script
-
-python main.py \
---projectID $PROJECT_ID \
---projectName $PROJECT_NAME \
---organism $ORGANISM \
---cores $CORES \
---outDir $OUTDIR \
---seqDir $SEQDIR \
---sampleSheet $SAMPLE_SHEET \
---genomeGTF $GENOME_GTF \
---genomeFasta $GENOME_FASTA
