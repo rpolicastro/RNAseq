@@ -27,13 +27,13 @@ then
 fi
 
 # Download singularity container if it doesn't exist yet
-if [ ! -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
+if [ ! -f "${OUTDIR}/container/rnaseq_automation_1.0.1.sif" ]
 then
-	echo "...downloading singularity container: rnaseq_automation_1.0.0.sif"
-	singularity pull -U library://rpolicastro/default/rnaseq_automation:1.0.0
-	mv rnaseq_automation_1.0.0.sif ${OUTDIR}/container
+	echo "...downloading singularity container: rnaseq_automation_1.0.1.sif"
+	singularity pull -U library://rpolicastro/default/rnaseq_automation:1.0.1
+	mv rnaseq_automation_1.0.1.sif ${OUTDIR}/container
 	
-	if [ -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
+	if [ -f "${OUTDIR}/container/rnaseq_automation_1.0.1.sif" ]
 	then 
 		echo "...singularity container downloaded"
 	else 
@@ -57,4 +57,4 @@ $(dirname $GENOME_GTF),\
 $(dirname $GENOME_FASTA),\
 $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
-${OUTDIR}/container/rnaseq_automation_1.0.0.sif
+${OUTDIR}/container/rnaseq_automation_1.0.1.sif
