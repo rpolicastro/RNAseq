@@ -21,7 +21,7 @@ conda clean -y --all
 
 %environment
 
-export PATH=$PATH:/opt/conda/envs/rnaseq-automation/bin
+export PATH=/opt/conda/envs/rnaseq-automation/bin:$PATH
 
 %runscript
 
