@@ -11,12 +11,10 @@ conda update -n base -y -c defaults conda
 
 ## Install RNA-seq analysis software
 conda create -n rnaseq-automation -y -c conda-forge -c bioconda \
-pandas fastqc star samtools subread \
-r-tidyverse bioconductor-rtracklayer bioconductor-genomicranges bioconductor-genomicfeatures \
-bioconductor-edger bioconductor-deseq2 bioconductor-clusterprofiler bioconductor-reactomepa
+pandas fastqc star samtools subread
 
 ## Update rnaseq-automation environment
-#conda update -n chip-downsampling -y --strict-channel-priority -c conda-forge -c bioconda --all
+conda update -n chip-downsampling -y -c conda-forge -c bioconda --all
 
 ## Clean up extra files
 conda clean -y --all
