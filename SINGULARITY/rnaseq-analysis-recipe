@@ -18,3 +18,26 @@ conda update -n rnaseq-automation -y -c conda-forge -c bioconda --all
 
 ## Clean up extra files
 conda clean -y --all
+
+%run
+
+## Load conda environment
+
+source activate rnaseq-automation
+
+## Load up run settings
+
+source settings.conf
+
+## Run the python script
+
+python main.py \
+--projectID $PROJECT_ID \
+--projectName $PROJECT_NAME \
+--organism $ORGANISM \
+--cores $CORES \
+--outDir $OUTDIR \
+--seqDir $SEQDIR \
+--sampleSheet $SAMPLE_SHEET \
+--genomeGTF $GENOME_GTF \
+--genomeFasta $GENOME_FASTA
