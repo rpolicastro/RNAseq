@@ -32,6 +32,7 @@ if [ ! -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
 then
 	echo "...downloading singularity container: RNAseq_latest.sif"
 	singularity pull -U library://rpolicastro/default/rnaseq_automation:1.0.0
+	mv rnaseq_automation_1.0.0.sif ${OUTDIR}/container
 	if [ -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
 	then 
 		echo "...singularity container downloaded"
