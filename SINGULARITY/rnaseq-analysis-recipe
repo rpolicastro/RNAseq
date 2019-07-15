@@ -19,7 +19,11 @@ conda update -n rnaseq-automation -y -c conda-forge -c bioconda --all
 ## Clean up extra files
 conda clean -y --all
 
-%run
+%runscript
+
+## Print out container info
+
+echo $(type conda)
 
 ## Load conda environment
 
