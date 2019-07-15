@@ -31,8 +31,8 @@ fi
 if [ ! -f "${OUTDIR}/container/RNAseq_latest.sif" ]
 then
 	echo "...downloading singularity container: RNAseq_latest.sif"
-	singularity pull shub://rpolicastro/RNAseq
-	if [ -f "${OUTDIR}/container/RNAseq_latest.sif" ]
+	singularity pull library://rpolicastro/default/rnaseq_automation:1.0.0
+	if [ -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
 	then 
 		echo "...singularity container downloaded"
 	else 
@@ -59,7 +59,7 @@ $(dirname $GENOME_GTF), \
 $(dirname $GENOME_FASTA), \
 $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
-${OUTDIR}/container/RNAseq_latest.sif
+${OUTDIR}/container/rnaseq_automation_1.0.0.sif
 
 
 ## Run RNA-seq Automation Script
