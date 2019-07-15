@@ -67,6 +67,10 @@ ${OUTDIR}/container/rnaseq_automation_1.0.0.sif
 
 source activate rnaseq-automation
 
+## Reload settings
+
+source settings.conf
+
 ## Run RNA-seq automation script
 
 python main.py \
