@@ -24,15 +24,15 @@ if [ ! -d "$OUTDIR" ]; then mkdir -p $OUTDIR; fi
 if [ ! -d "${OUTDIR}/container" ]
 then
 	mkdir -p ${OUTDIR}/container
-	cd ${OUTDIR}/container
 fi
 
 # Download singularity container if it doesn't exist yet
 if [ ! -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
 then
-	echo "...downloading singularity container: RNAseq_latest.sif"
+	echo "...downloading singularity container: rnaseq_automation_1.0.0.sif"
 	singularity pull -U library://rpolicastro/default/rnaseq_automation:1.0.0
 	mv rnaseq_automation_1.0.0.sif ${OUTDIR}/container
+	
 	if [ -f "${OUTDIR}/container/rnaseq_automation_1.0.0.sif" ]
 	then 
 		echo "...singularity container downloaded"
@@ -44,20 +44,17 @@ else
 	echo "...singularity container already exists in ${OUTDIR}/container"
 fi
 
-# Change back to the repository directory
-cd $REPDIR
-
 ## Activate singularity container
 
 echo "...shelling into singularity container"
 
 singularity shell \
--e -C \
--B $REPDIR, \
-$OUTDIR, \
-$SEQDIR, \
-$(dirname $GENOME_GTF), \
-$(dirname $GENOME_FASTA), \
+-eCB \
+$REPDIR,\
+$OUTDIR,\
+$SEQDIR,\
+$(dirname $GENOME_GTF),\
+$(dirname $GENOME_FASTA),\
 $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
 ${OUTDIR}/container/rnaseq_automation_1.0.0.sif
