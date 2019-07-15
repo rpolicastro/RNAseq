@@ -59,7 +59,6 @@ $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
 ${OUTDIR}/container/rnaseq_automation_1.0.0.sif
 
-
 ## Run RNA-seq Automation Script
 ## ----------
 
