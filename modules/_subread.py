@@ -21,7 +21,7 @@ def count_reads(self, genomeGTF=None, genomeFasta=None):
 			'featureCounts',
 			'-F GTF -t exon -g gene_id',
 			'--minOverlap 10 --largestOverlap',
-			'--primary -s 1 -T', str(self.cores)
+			'--primary -s 2 -T', str(self.cores)
 		]
 		# add paired end options where appropriate
 		if row['paired'].lower() == 'paired': command.extend(['-p -B -C'])
