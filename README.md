@@ -43,7 +43,7 @@ The last step is to set a few settings in the 'settings.conf' file in the main r
 
 ## Running the Workflow
 
-After getting Singularity installed, the sample sheet prepared, and the settings specified, you are now ready to run the workflow. Navigate to the main directory and enter 'bash main.sh'.
+After getting Singularity installed, the sample sheet prepared, and the settings specified, you are now ready to run the workflow. Navigate to the main directory and enter 'bash run.sh'.
 
 # Built With
 
