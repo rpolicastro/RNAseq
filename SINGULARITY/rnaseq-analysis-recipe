@@ -22,18 +22,3 @@ conda clean -y --all
 %environment
 
 export PATH=/opt/conda/envs/rnaseq-automation/bin:$PATH
-
-%runscript
-
-## Run the python script
-
-python main.py \
---projectID $PROJECT_ID \
---projectName $PROJECT_NAME \
---organism $ORGANISM \
---cores $CORES \
---outDir $OUTDIR \
---seqDir $SEQDIR \
---sampleSheet $SAMPLE_SHEET \
---genomeGTF $GENOME_GTF \
---genomeFasta $GENOME_FASTA

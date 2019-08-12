@@ -48,17 +48,7 @@ fi
 
 echo "...running singularity container"
 
-SINGULARITYENV_PROJECT_ID=$PROJECT_ID \
-SINGULARITYENV_PROJECT_NAME=$PROJECT_NAME \
-SINGULARITYENV_ORGANISM=$ORGANISM \
-SINGULARITYENV_CORES=$CORES \
-SINGULARITYENV_REPDIR=$REPDIR \
-SINGULARITYENV_OUTDIR=$OUTDIR \
-SINGULARITYENV_SEQDIR=$SEQDIR \
-SINGULARITYENV_SAMPLE_SHEET=$SAMPLE_SHEET \
-SINGULARITYENV_GENOME_GTF=$GENOME_GTF \
-SINGULARITYENV_GENOME_FASTA=$GENOME_FASTA \
-singularity run \
+singularity exec \
 -eCB \
 $REPDIR,\
 $OUTDIR,\
@@ -67,4 +57,14 @@ $(dirname $GENOME_GTF),\
 $(dirname $GENOME_FASTA),\
 $(dirname $SAMPLE_SHEET) \
 -H $REPDIR \
-${OUTDIR}/container/rnaseq_automation_1.0.1.sif
+${OUTDIR}/container/rnaseq_automation_1.0.1.sif \
+python main.py \
+--projectID $PROJECT_ID \
+--projectName $PROJECT_NAME \
+--organism $ORGANISM \
+--cores $CORES \
+--outDir $OUTDIR \
+--seqDir $SEQDIR \
+--sampleSheet $SAMPLE_SHEET \
+--genomeGTF $GENOME_GTF \
+--genomeFasta $GENOME_FASTA
