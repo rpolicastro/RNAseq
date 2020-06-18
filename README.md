@@ -1,3 +1,5 @@
+deprecated: please refer to [ZentTools](https://github.com/rpolicastro/ZentTools).
+
 # RNAseq
 Automation of RNA-seq Workflow
 
