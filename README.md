@@ -19,20 +19,6 @@ Before creating the environment, you must first install miniconda.
 
 You are now read to create the virtual sofware environment, and download all software and dependencies.
 
-#### Recreating Original Environment
-
-If you would like to recreate the environment used when writing the original workflow, you can do so with the provided environment.yml file. This will install the main software versions used in the development of the workflow, and automatically download the dependencies for those version.
-
-```
-conda env create -f environment.yml -p ~/miniconda3/envs/rnaseq-automation
-```
-
-`-p` should point to the environments folder for your conda installation, which is usually `/miniconda3/envs`.
-
-#### Creating Updated Environment
-
-If you would like to create your own environment with the latest software versions, follow the steps below.
-
 1. Create the new environment and specify the software to include in it.
 ```
 conda create -n rnaseq-automation -y -c conda-forge -c bioconda \
